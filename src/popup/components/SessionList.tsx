@@ -6,9 +6,10 @@ interface SessionListProps {
     onRestore: (sessionId: string) => void
     onDelete?: (sessionId: string) => void
     onRename?: (sessionId: string, newName: string) => void
+    onEdit?: (session: Session) => void
 }
 
-export function SessionList({ sessions, onRestore, onDelete, onRename }: SessionListProps) {
+export function SessionList({ sessions, onRestore, onDelete, onRename, onEdit }: SessionListProps) {
     if (sessions.length === 0) {
         return (
             <div className="flex flex-col items-center justify-center py-8 text-center">
@@ -34,6 +35,7 @@ export function SessionList({ sessions, onRestore, onDelete, onRename }: Session
                     onRestore={() => onRestore(session.id)}
                     onDelete={onDelete ? () => onDelete(session.id) : undefined}
                     onRename={onRename ? (newName) => onRename(session.id, newName) : undefined}
+                    onEdit={onEdit ? () => onEdit(session) : undefined}
                 />
             ))}
         </div>

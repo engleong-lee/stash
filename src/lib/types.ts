@@ -36,6 +36,7 @@ export type MessageType =
     | { type: 'SAVE_SESSION'; session: Session }
     | { type: 'RESTORE_SESSION'; sessionId: string; newWindow?: boolean }
     | { type: 'DELETE_SESSION'; sessionId: string }
+    | { type: 'UPDATE_SESSION'; session: Session }
     | { type: 'GET_SESSIONS' }
     | { type: 'GENERATE_SESSION_NAME'; tabTitles: string[] }
 

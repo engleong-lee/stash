@@ -167,6 +167,17 @@ Stash provides:
 | Ollama (local) | Free, private, offline | Requires install, slower |
 | Claude API | Fast, high quality | Costs money, requires internet |
 
+#### 2.1.11 Edit Sessions (P1 - Should Have)
+
+| ID | Requirement | Details |
+|----|-------------|---------|
+| EDT-01 | Edit mode | Click edit icon to enter session edit mode |
+| EDT-02 | View all tabs | Display all tabs in session with favicon and title |
+| EDT-03 | Remove tabs | Remove individual tabs from a saved session via X button |
+| EDT-04 | Add current tabs | Add currently open tabs to an existing session |
+| EDT-05 | Save changes | Persist changes to session storage |
+| EDT-06 | Cancel edit | Discard changes and exit edit mode |
+
 ---
 
 ### 2.2 Non-Functional Requirements

@@ -57,6 +57,14 @@ async function handleMessage(message: MessageType): Promise<MessageResponse> {
             return { success: true }
         }
 
+        case 'UPDATE_SESSION': {
+            await storage.updateSession(message.session.id, {
+                name: message.session.name,
+                tabs: message.session.tabs,
+            })
+            return { success: true }
+        }
+
         case 'GENERATE_SESSION_NAME': {
             try {
                 const name = await generateSessionName(message.tabTitles)

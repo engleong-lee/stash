@@ -7,9 +7,10 @@ interface SessionItemProps {
     onRestore: () => void
     onDelete?: () => void
     onRename?: (newName: string) => void
+    onEdit?: () => void
 }
 
-export function SessionItem({ session, onRestore, onDelete, onRename }: SessionItemProps) {
+export function SessionItem({ session, onRestore, onDelete, onRename, onEdit }: SessionItemProps) {
     const [isEditing, setIsEditing] = useState(false)
     const [editName, setEditName] = useState(session.name)
     const [showPreview, setShowPreview] = useState(false)
@@ -132,6 +133,20 @@ export function SessionItem({ session, onRestore, onDelete, onRename }: SessionI
                     {/* Action buttons (shown on hover) */}
                     {!isEditing && (
                         <div className="opacity-0 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
+                            {onEdit && (
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        onEdit()
+                                    }}
+                                    className="p-1 text-gray-400 hover:text-indigo-500 transition-colors"
+                                    title="Edit session tabs"
+                                >
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                    </svg>
+                                </button>
+                            )}
                             {onRename && (
                                 <button
                                     onClick={handleEditStart}

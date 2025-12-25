@@ -10,6 +10,7 @@ import { TabSelector } from './TabSelector'
 import { Settings } from './Settings'
 import { Toast } from './Toast'
 import { ConfirmDialog } from './ConfirmDialog'
+import { SessionEditor } from './SessionEditor'
 import type { Session, Tab } from '../../lib/types'
 import { getSettings } from '../../lib/storage'
 
@@ -30,6 +31,7 @@ function App() {
     const [selectedTabs, setSelectedTabs] = useState<Tab[]>([])
     const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
     const [_deletedSession, setDeletedSession] = useState<Session | null>(null)
+    const [editingSession, setEditingSession] = useState<Session | null>(null)
 
     const { tabs, tabCount, isLoading: tabsLoading } = useCurrentTabs()
     const { sessions, isLoading: sessionsLoading, loadSessions, addSession, removeSession, updateSession } = useSessionStore()
@@ -154,6 +156,24 @@ function App() {
         }
     }
 
+    const handleEditSession = (session: Session) => {
+        setEditingSession(session)
+    }
+
+    const handleSaveEditedSession = async (updatedSession: Session) => {
+        try {
+            await chrome.runtime.sendMessage({
+                type: 'UPDATE_SESSION',
+                session: updatedSession,
+            })
+            await loadSessions() // Refresh the session list
+            setEditingSession(null)
+            setToast({ message: 'Session updated', type: 'success' })
+        } catch {
+            setToast({ message: 'Failed to update session', type: 'error' })
+        }
+    }
+
     const isLoading = tabsLoading || sessionsLoading
 
     // Render settings view
@@ -252,6 +272,7 @@ function App() {
                                     onRestore={handleRestore}
                                     onDelete={handleDeleteClick}
                                     onRename={handleRename}
+                                    onEdit={handleEditSession}
                                 />
                             )}
                         </div>
@@ -279,6 +300,15 @@ function App() {
                     onConfirm={handleDeleteConfirm}
                     onCancel={() => setConfirmDelete(null)}
                     isDestructive
+                />
+            )}
+
+            {/* Session Editor Modal */}
+            {editingSession && (
+                <SessionEditor
+                    session={editingSession}
+                    onSave={handleSaveEditedSession}
+                    onCancel={() => setEditingSession(null)}
                 />
             )}
         </div>

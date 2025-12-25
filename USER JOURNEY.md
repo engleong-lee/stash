@@ -248,6 +248,38 @@
 
 ---
 
+### Journey 6: Edit Session Contents
+
+**Scenario:** User wants to add new tabs to an existing session or remove outdated tabs.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         WITH STASH                              │
+├─────────────────────────────────────────────────────────────────┤
+│ Add Tabs:                                                       │
+│ 1. Hover over session                                           │
+│ 2. Click edit icon (pencil)                                     │
+│ 3. See all tabs with X buttons to remove                        │
+│ 4. Click "Add Current Tabs" to append open tabs                 │
+│ 5. Click "Save" to persist changes                              │
+│                                                                 │
+│ Remove Tabs:                                                    │
+│ 1. Hover over session                                           │
+│ 2. Click edit icon (pencil)                                     │
+│ 3. Click X next to tab to remove                                │
+│ 4. Click "Save" to persist changes                              │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Key UX Requirements:**
+- Edit opens in modal/overlay
+- All tabs shown with favicon, title, and remove button
+- "Add Current Tabs" button adds all open tabs to session
+- Cancel discards changes
+- Confirmation before saving if tabs were removed
+
+---
+
 ## Screen Designs
 
 ### Main Popup - Default View
