@@ -20,6 +20,7 @@ Stash uses AI to automatically suggest smart names for your sessions based on th
 📂 **Session Management**
 - Search through your saved sessions instantly
 - Rename sessions with inline editing
+- **Edit sessions** - add or remove individual tabs
 - Delete sessions with undo support
 - Preview tabs before restoring
 
