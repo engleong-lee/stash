@@ -14,8 +14,8 @@
 | Phase 0: Setup | 6 | 6 | 🟩🟩🟩🟩🟩🟩 100% |
 | Phase 1: Core MVP | 28 | 28 | 🟩🟩🟩🟩🟩🟩🟩🟩 100% |
 | Phase 2: Polish & Features | 22 | 22 | 🟩🟩🟩🟩🟩🟩🟩🟩 100% |
-| Phase 3: AI & Distribution | 21 | 19 | 🟩🟩🟩🟩🟩🟩🟩🟩 90% |
-| **Total** | **77** | **75** | **97%** |
+| Phase 3: AI & Distribution | 21 | 20 | 🟩🟩🟩🟩🟩🟩🟩🟩 95% |
+| **Total** | **77** | **76** | **99%** |
 
 ---
 
@@ -468,12 +468,13 @@
   - [x] Note: Ollama = fully local, Claude = sends tab titles only ✅
   - [x] No tracking statement ✅
 
-- [ ] **3.20** Submit to Chrome Web Store
-  - [ ] Create developer account ($5)
+- [x] **3.20** Submit to Chrome Web Store ✅ (Pending Review)
+  - [x] Create developer account ($5) ✅
   - [x] Extension ZIP ready: `store-assets/stash-extension.zip` ✅
-  - [ ] Upload ZIP
-  - [ ] Fill in listing details
-  - [ ] Submit for review
+  - [x] Upload ZIP ✅
+  - [x] Fill in listing details ✅
+  - [x] Submit for review ✅
+  - [x] GitHub repo: https://github.com/engleong-lee/stash ✅
 
 - [ ] **3.21** Submit to Edge Add-ons
   - [ ] Create Microsoft Partner account (free)
